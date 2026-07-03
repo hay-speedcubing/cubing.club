@@ -157,6 +157,22 @@
   .src-credit a{font-weight:700; color:var(--ink-soft); text-decoration:underline;}
   .src-credit a:hover{color:var(--ink);}
 
+  .photo-placeholder{
+    margin-top:22px; height:220px; border:1.5px dashed var(--line); border-radius:var(--radius);
+    background:var(--paper-soft);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
+    color:var(--ink-soft); font-size:13px;
+  }
+  .photo-placeholder .icon{font-size:22px;}
+
+  .ref-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px;}
+  .ref-list li{
+    font-size:14px; color:var(--ink-soft); padding-bottom:10px; border-bottom:1px solid var(--line);
+  }
+  .ref-list li:last-child{border-bottom:none; padding-bottom:0;}
+  .ref-list a{font-weight:700; color:var(--ink);}
+  .ref-list a:hover{text-decoration:underline;}
+
   .team-grid{
     display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
   }
@@ -252,7 +268,7 @@
       <p>Our goal is simple: more people solving, more official competitions, more chances to compete close to home — all run fairly, openly, and for the benefit of the community rather than any one person.</p>
       <p>We believe speedcubing has real value beyond the puzzle itself — it builds focus, problem-solving, and confidence, especially in young people. That's why our weekly meetups are free, and why we're building this as a non-profit rather than a private club.</p>
     </div>
-    <p class="src-credit">Framing inspired by <a href="https://cubingusa.org/about" target="_blank" rel="noopener">CubingUSA</a>.</p>
+    <div class="photo-placeholder"><span class="icon">📷</span><span>Add photo</span></div>
   </div>
 </section>
 
@@ -274,6 +290,7 @@
         <span>Grown organically on Instagram (@cubing.am), with zero paid marketing so far.</span>
       </div>
     </div>
+    <div class="photo-placeholder"><span class="icon">📷</span><span>Add photo</span></div>
   </div>
 </section>
 
@@ -285,7 +302,7 @@
       <p>Cubing Armenia is led by Mayis Jraghatspanyan, WCA Junior Delegate for Armenia, who has represented the country within the World Cube Association while organizing and supporting competitions nationwide.</p>
       <p>What started as informal weekend meetups has grown into a recognizable community — and the next step is making that official: a properly registered non-profit that can run competitions, coaching, and outreach transparently, and outlast any one organizer.</p>
     </div>
-    <p class="src-credit">Page approach inspired by <a href="https://www.speedcubingireland.com/posts/about" target="_blank" rel="noopener">Speedcubing Ireland</a>.</p>
+    <div class="photo-placeholder"><span class="icon">📷</span><span>Add photo</span></div>
   </div>
 </section>
 
@@ -320,6 +337,7 @@
       </div>
       <span class="status-pill status-pending">Planned — after NGO filing</span>
     </div>
+    <div class="photo-placeholder"><span class="icon">📷</span><span>Add photo</span></div>
   </div>
 </section>
 
@@ -353,7 +371,26 @@
         <span>Event Organizer</span>
       </div>
     </div>
-    <p class="src-credit">Team layout inspired by <a href="https://www.mycubeassociation.org/" target="_blank" rel="noopener">Malaysia Cube Sports Association</a>.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="divider"></div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">With thanks to</div>
+    <h2 class="section-title">References</h2>
+    <p style="font-size:14px; color:var(--ink-soft); margin:-4px 0 20px; max-width:60ch;">
+      This site's structure — across every page — was shaped by looking at how other WCA-recognized organizations present themselves. Their content belongs to them; we simply learned from how they're organized.
+    </p>
+    <ul class="ref-list">
+      <li><a href="https://cubingusa.org/about" target="_blank" rel="noopener">CubingUSA</a> — About page structure and mission framing</li>
+      <li><a href="https://www.mycubeassociation.org/" target="_blank" rel="noopener">Malaysia Cube Sports Association</a> — Team section layout</li>
+      <li><a href="https://cubingskills.ru/lessons" target="_blank" rel="noopener">Cubing Skills</a> — Meetups framing (homepage)</li>
+      <li><a href="https://www.speedcubing.org.au/competitions" target="_blank" rel="noopener">Speedcubing Australia</a> — Competitions page structure</li>
+    </ul>
   </div>
 </section>
 
