@@ -88,7 +88,30 @@
   nav.links{display:flex; gap:28px; align-items:center;}
   nav.links a{font-size:14.5px; font-weight:600; color:var(--ink); opacity:0.8; transition:opacity .15s;}
   nav.links a:hover{opacity:1;}
-  @media (max-width:820px){ nav.links a.hide-mobile{display:none;} }
+  .menu-toggle{
+    display:none; background:none; border:none; cursor:pointer; padding:6px; flex:none;
+  }
+  .menu-toggle span{
+    display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; transition:transform .2s ease, opacity .2s ease;
+  }
+  .menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .menu-toggle.open span:nth-child(2){opacity:0;}
+  .menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .nav-overlay{
+    display:none; position:fixed; inset:0; background:rgba(0,0,0,0.3); z-index:65;
+  }
+  .nav-overlay.open{display:block;}
+  @media (max-width:820px){
+    .menu-toggle{display:block;}
+    nav.links{
+      position:fixed; top:0; right:0; height:100vh; width:min(78vw,300px);
+      background:var(--paper); flex-direction:column; align-items:flex-start;
+      padding:96px 28px 28px; gap:24px; box-shadow:-10px 0 30px rgba(0,0,0,0.1);
+      transform:translateX(100%); transition:transform .25s ease; z-index:70;
+    }
+    nav.links.open{ transform:translateX(0); }
+    nav.links a{font-size:16.5px;}
+  }
 
   /* ---------- hero ---------- */
   .hero{ padding-top:72px; padding-bottom:72px; }
@@ -175,6 +198,8 @@
   .meetup-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:16px;}
   .meetup-list li{ display:flex; gap:14px; align-items:flex-start; font-size:15.5px; line-height:1.5; }
   .meetup-list li .dot{ width:8px; height:8px; border-radius:50%; margin-top:7px; flex:none; }
+  .src-credit a{color:var(--ink-soft);}
+  .src-credit a:hover{color:var(--ink);}
 
   /* ---------- store ---------- */
   .store{
@@ -237,15 +262,17 @@
       <img src="logo.png" alt="Cubing Armenia logo">
       <span>Cubing Armenia</span>
     </a>
-    <nav class="links">
-      <a href="#meetups-full" class="hide-mobile">Meetups</a>
-      <a href="#competitions" class="hide-mobile">Competitions</a>
-      <a href="#learn" class="hide-mobile">Learn</a>
-      <a href="#store" class="hide-mobile">Store</a>
-      <a href="#contact" class="hide-mobile">Contact</a>
-      <a href="about.html" class="hide-mobile">About</a>
+    <nav class="links" id="navLinks">
+      <a href="#meetups-full">Meetups</a>
+      <a href="#competitions">Competitions</a>
+      <a href="#learn">Learn</a>
+      <a href="#store">Store</a>
+      <a href="#contact">Contact</a>
+      <a href="about.html">About</a>
     </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
+  <div class="nav-overlay" id="navOverlay"></div>
   <div class="tricolor-rule"><span></span><span></span><span></span></div>
 </header>
 
@@ -285,7 +312,7 @@
       <div class="pillar-card" id="competitions">
         <div class="pillar-swatch" style="background:var(--cube-red);"></div>
         <h3>Competitions</h3>
-        <p>From your first official 3x3 average to national records — we help organize and support WCA-sanctioned competitions across Armenia and Georgia.</p>
+        <p>From your first official 3x3 average to national records — we help organize and support WCA-sanctioned competitions across Armenia.</p>
         <span class="go">Upcoming competitions →</span>
       </div>
       <div class="pillar-card" id="ngo">
@@ -311,13 +338,17 @@
       <div class="eyebrow">Free &amp; open to everyone</div>
       <div class="meetup-day">SUNDAY</div>
       <div class="meetup-time mono">14:00–16:00 · KFC [location — confirm]</div>
+      <p style="margin-top:16px; font-size:14.5px; color:var(--ink-soft); max-width:36ch;">It's not just about solving faster — kids build focus, memory, and confidence along the way, at whatever pace suits them.</p>
     </div>
-    <ul class="meetup-list">
-      <li><span class="dot" style="background:var(--cube-red);"></span><span>Two hours of free open practice — bring your own cube, or borrow one of ours.</span></li>
-      <li><span class="dot" style="background:var(--cube-blue);"></span><span>Casual coaching for beginners, plus fast-solving tips for the more experienced.</span></li>
-      <li><span class="dot" style="background:var(--cube-gold);"></span><span>Kids welcome — many parents bring their children every week.</span></li>
-      <li><span class="dot" style="background:var(--ink);"></span><span>No sign-up, no cost — just show up.</span></li>
-    </ul>
+    <div>
+      <ul class="meetup-list">
+        <li><span class="dot" style="background:var(--cube-red);"></span><span>Two hours of free open practice — bring your own cube, or borrow one of ours.</span></li>
+        <li><span class="dot" style="background:var(--cube-blue);"></span><span>Casual coaching adapted to each person — beginners and fast-solvers both welcome.</span></li>
+        <li><span class="dot" style="background:var(--cube-gold);"></span><span>Kids welcome — many parents bring their children every week.</span></li>
+        <li><span class="dot" style="background:var(--ink);"></span><span>No sign-up, no cost — just show up.</span></li>
+      </ul>
+      <p class="src-credit" style="margin-top:16px; font-size:12.5px; color:var(--ink-soft);">Approach inspired by <a href="https://cubingskills.ru/lessons" target="_blank" rel="noopener" style="font-weight:700; color:var(--ink-soft); text-decoration:underline;">Cubing Skills</a>.</p>
+    </div>
   </div>
 </section>
 
@@ -343,7 +374,7 @@
     <ul class="about-facts">
       <li><b>WCA Junior Delegate</b><span>Mayis Jraghatspanyan represents Armenia within the World Cube Association.</span></li>
       <li><b>Non-profit by design</b><span>Competition and NGO activity is not-for-profit — any surplus goes back into the community.</span></li>
-      <li><b>Regional reach</b><span>Active organizing across Armenia and Georgia.</span></li>
+      <li><b>All of Armenia</b><span>Organizing and supporting competitions nationwide.</span></li>
     </ul>
   </div>
 </section>
@@ -377,6 +408,23 @@
 <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
 
 <script>
+  // ---------------- mobile menu ----------------
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  const navOverlay = document.getElementById('navOverlay');
+  function closeMenu(){
+    menuToggle.classList.remove('open');
+    navLinks.classList.remove('open');
+    navOverlay.classList.remove('open');
+  }
+  menuToggle.addEventListener('click', ()=>{
+    const isOpen = navLinks.classList.toggle('open');
+    menuToggle.classList.toggle('open', isOpen);
+    navOverlay.classList.toggle('open', isOpen);
+  });
+  navOverlay.addEventListener('click', closeMenu);
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
   // ---------------- back to top ----------------
   const toTopBtn = document.getElementById('toTop');
   window.addEventListener('scroll', ()=>{
