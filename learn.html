@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Competitions — Cubing Armenia</title>
+<title>Learn — Cubing Armenia</title>
 <link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,7 +42,7 @@
   img{max-width:100%; display:block;}
   section{padding:80px 24px;}
   @media (max-width:720px){ section{padding:56px 20px;} }
-  .wrap{max-width:900px; margin:0 auto;}
+  .wrap{max-width:840px; margin:0 auto;}
   .eyebrow{
     font-family:'JetBrains Mono',monospace;
     font-size:12.5px;
@@ -116,40 +116,64 @@
   .page-head h1{font-size:clamp(30px,4.5vw,44px); line-height:1.08;}
   .page-head p.lede{margin-top:16px; font-size:17px; line-height:1.6; color:var(--ink-soft); max-width:60ch;}
 
-  .welcome-strip{
-    display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:32px;
-  }
-  @media (max-width:720px){ .welcome-strip{grid-template-columns:1fr;} }
-  .welcome-item{
-    border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px;
-  }
-  .welcome-item b{display:block; font-family:'Rubik',sans-serif; font-size:14.5px; margin-bottom:4px;}
-  .welcome-item span{font-size:13.5px; color:var(--ink-soft); line-height:1.5;}
-
-  .src-credit{ margin-top:14px; font-size:12.5px; color:var(--ink-soft); }
-  .src-credit a{font-weight:700; color:var(--ink-soft); text-decoration:underline;}
-  .src-credit a:hover{color:var(--ink);}
-
   .divider{height:1px; background:var(--line); margin:0;}
+
+  .video-wrap{
+    position:relative; width:100%; padding-top:56.25%;
+    border-radius:var(--radius); overflow:hidden; background:#000;
+    margin-top:32px;
+  }
+  .video-wrap iframe{
+    position:absolute; inset:0; width:100%; height:100%; border:0;
+  }
+  .video-caption{margin-top:12px; font-size:13.5px; color:var(--ink-soft);}
 
   h2.section-title{font-size:22px; margin-bottom:6px;}
   .section-sub{font-size:14.5px; color:var(--ink-soft); margin-bottom:24px;}
 
-  .comp-card{
+  .steps{list-style:none; margin:0; padding:0; counter-reset:step;}
+  .steps li{
+    counter-increment:step;
+    display:flex; gap:16px; padding:16px 0; border-bottom:1px solid var(--line);
+  }
+  .steps li:last-child{border-bottom:none;}
+  .steps li::before{
+    content:counter(step);
+    font-family:'JetBrains Mono',monospace; font-weight:700; font-size:13px;
+    width:28px; height:28px; border-radius:50%; background:var(--paper-soft);
+    display:flex; align-items:center; justify-content:center; flex:none;
+  }
+  .steps li b{display:block; font-family:'Rubik',sans-serif; font-size:15px; margin-bottom:3px;}
+  .steps li span{font-size:14.5px; color:var(--ink-soft); line-height:1.55;}
+
+  .mistake-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px;}
+  @media (max-width:720px){ .mistake-grid{grid-template-columns:1fr;} }
+  .mistake-card{
+    border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px;
+  }
+  .mistake-card b{display:block; font-family:'Rubik',sans-serif; font-size:14.5px; margin-bottom:5px;}
+  .mistake-card span{font-size:13.5px; color:var(--ink-soft); line-height:1.55;}
+
+  .path-strip{
+    display:flex; align-items:center; gap:0; margin-top:8px; flex-wrap:wrap;
+  }
+  .path-step{
+    border:1px solid var(--line); border-radius:999px; padding:9px 18px;
+    font-size:13.5px; font-weight:700; background:var(--paper);
+  }
+  .path-arrow{ padding:0 10px; color:var(--ink-soft); }
+
+  .cta-band{
+    background:var(--ink); color:#fff; border-radius:var(--radius);
+    padding:32px; margin-top:36px;
     display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
-    border:1px solid var(--line); border-radius:var(--radius); padding:20px 22px; margin-bottom:14px;
   }
-  .comp-card:last-child{margin-bottom:0;}
-  .comp-card.placeholder{ border-style:dashed; color:var(--ink-soft); }
-  .comp-name{font-family:'Rubik',sans-serif; font-weight:700; font-size:16px;}
-  .comp-meta{font-size:13.5px; color:var(--ink-soft); margin-top:4px;}
-  .comp-status{
-    font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
-    letter-spacing:0.05em; text-transform:uppercase; padding:6px 13px; border-radius:999px; flex:none;
+  .cta-band h3{color:#fff; font-size:19px;}
+  .cta-band p{margin:6px 0 0; font-size:14px; color:rgba(255,255,255,0.75); max-width:44ch;}
+  .cta-band .btn{
+    background:#fff; color:var(--ink); border:none; padding:12px 22px; border-radius:999px;
+    font-weight:700; font-size:14px; flex:none; cursor:pointer;
   }
-  .status-upcoming{ background:#E6F0FF; color:#0733A0; }
-  .status-past{ background:var(--paper-soft); color:var(--ink-soft); }
-  .status-todo{ background:#FDF1DC; color:#8A5A00; }
 
   footer{padding:48px 24px 32px;}
   .footer-inner{
@@ -193,8 +217,8 @@
     </a>
     <nav class="links" id="navLinks">
       <a href="index.html#meetups-full">Meetups</a>
-      <a href="competitions.html" class="current">Competitions</a>
-      <a href="learn.html">Learn</a>
+      <a href="competitions.html">Competitions</a>
+      <a href="learn.html" class="current">Learn</a>
       <a href="index.html#store">Store</a>
       <a href="about.html">About</a>
     </nav>
@@ -207,25 +231,14 @@
 <a id="top"></a>
 
 <div class="wrap page-head">
-  <div class="eyebrow">Competitions</div>
-  <h1>WCA-sanctioned competitions, open to everyone.</h1>
-  <p class="lede">There are no age categories and no minimum speed to enter — first-timers compete right alongside national record holders. If you can do the Rubik's Cube, you can compete.</p>
+  <div class="eyebrow">Learn</div>
+  <h1>Solve your first cube today.</h1>
+  <p class="lede">No experience needed — just a standard 3x3 and about 20 minutes. Watch the video below, then use the written steps as a reference while you practice.</p>
 
-  <div class="welcome-strip">
-    <div class="welcome-item">
-      <b>Anyone can enter</b>
-      <span>No qualifying time, no experience required — just register before the cutoff.</span>
-    </div>
-    <div class="welcome-item">
-      <b>Spectators welcome</b>
-      <span>Family and friends are welcome to come watch, free of charge.</span>
-    </div>
-    <div class="welcome-item">
-      <b>Official results</b>
-      <span>Every result is submitted to the WCA and becomes part of your permanent profile.</span>
-    </div>
+  <div class="video-wrap">
+    <iframe src="https://www.youtube.com/embed/qgCFr7IfAl4" title="3x3 tutorial — Cubing Armenia" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
-
+  <p class="video-caption">3x3 beginner tutorial by Mayis Jraghatspanyan.</p>
 </div>
 
 <div class="wrap">
@@ -234,74 +247,103 @@
 
 <section>
   <div class="wrap">
-    <div class="eyebrow">What's coming up</div>
-    <h2 class="section-title">Upcoming competitions</h2>
-    <p class="section-sub">Updated as new competitions are announced and approved by the WCA.</p>
+    <div class="eyebrow">Reference</div>
+    <h2 class="section-title">The method, step by step</h2>
+    <p class="section-sub">A quick reference for the layer-by-layer method shown in the video — come back to this anytime you get stuck.</p>
 
-    <div class="comp-card placeholder">
-      <div>
-        <div class="comp-name">No upcoming competitions announced yet</div>
-        <div class="comp-meta">Check back soon, or follow @cubing.am for announcements</div>
+    <ol class="steps">
+      <li>
+        <div>
+          <b>Build the white cross</b>
+          <span>Get the four white edge pieces around the white center, matching each one to its neighboring center color.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <b>Solve the white corners</b>
+          <span>Slot each white corner piece into place, completing the first layer.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <b>Solve the middle layer edges</b>
+          <span>Move the four remaining edge pieces (no yellow) into the middle layer.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <b>Make the yellow cross</b>
+          <span>Orient the top layer edges so the yellow face shows a cross.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <b>Orient the yellow corners</b>
+          <span>Get all four top corners showing yellow on top, regardless of position.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <b>Position the yellow corners</b>
+          <span>Move the corners into their correct spots without worrying about the edges yet.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <b>Position the yellow edges</b>
+          <span>Cycle the last edges into place — and the cube is solved.</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="eyebrow">Watch out for</div>
+    <h2 class="section-title">Common mistakes</h2>
+    <div class="mistake-grid">
+      <div class="mistake-card">
+        <b>Cross pieces flipped</b>
+        <span>A "cross" that looks right from the top can still be wrong — check that each edge color matches its side center too.</span>
       </div>
-      <span class="comp-status status-todo">TBA</span>
+      <div class="mistake-card">
+        <b>Breaking the first layer</b>
+        <span>It's easy to accidentally twist the bottom layer while solving the middle layer. Slow down and double-check before each move.</span>
+      </div>
+      <div class="mistake-card">
+        <b>Mixing up orient vs. position</b>
+        <span>Orienting (which way a piece faces) and positioning (where it goes) are two separate steps — trying to do both at once causes most beginner confusion.</span>
+      </div>
+      <div class="mistake-card">
+        <b>Memorizing without understanding</b>
+        <span>It's fine to memorize the last few steps at first, but come back later and learn *why* they work — it makes everything after this much easier.</span>
+      </div>
     </div>
   </div>
 </section>
 
 <section style="padding-top:0;">
   <div class="wrap">
-    <div class="eyebrow">The record so far</div>
-    <h2 class="section-title">Past competitions</h2>
-    <p class="section-sub">Every WCA competition held in Armenia to date, per official WCA history. Let us know if we're missing one.</p>
+    <div class="eyebrow">What's next</div>
+    <h2 class="section-title">Once you can solve it consistently</h2>
+    <p class="section-sub">Speed comes in stages — here's the usual path from "I can solve it" to competing.</p>
+    <div class="path-strip">
+      <span class="path-step">Finger tricks</span>
+      <span class="path-arrow">→</span>
+      <span class="path-step">F2L (intuitive)</span>
+      <span class="path-arrow">→</span>
+      <span class="path-step">Full CFOP</span>
+      <span class="path-arrow">→</span>
+      <span class="path-step">Your first competition</span>
+    </div>
 
-    <div class="comp-card">
+    <div class="cta-band">
       <div>
-        <div class="comp-name">Masiv Cubing 2026</div>
-        <div class="comp-meta">Yerevan</div>
+        <h3>Want faster, personalized coaching?</h3>
+        <p>One-on-one and group sessions are available — from your first solve to sub-10 speedsolving.</p>
       </div>
-      <span class="comp-status status-past">Past</span>
-    </div>
-    <div class="comp-card">
-      <div>
-        <div class="comp-name">ChessCubing Armenia 2024</div>
-        <div class="comp-meta">Yerevan</div>
-      </div>
-      <span class="comp-status status-past">Past</span>
-    </div>
-    <div class="comp-card">
-      <div>
-        <div class="comp-name">Weekend Madness in Yerevan 2024</div>
-        <div class="comp-meta">Yerevan</div>
-      </div>
-      <span class="comp-status status-past">Past</span>
-    </div>
-    <div class="comp-card">
-      <div>
-        <div class="comp-name">Yerevan Open 2023</div>
-        <div class="comp-meta">Yerevan</div>
-      </div>
-      <span class="comp-status status-past">Past</span>
-    </div>
-    <div class="comp-card">
-      <div>
-        <div class="comp-name">Armenian Open 2023</div>
-        <div class="comp-meta">Yerevan</div>
-      </div>
-      <span class="comp-status status-past">Past</span>
-    </div>
-    <div class="comp-card">
-      <div>
-        <div class="comp-name">AUA Open 2021</div>
-        <div class="comp-meta">Yerevan · American University of Armenia</div>
-      </div>
-      <span class="comp-status status-past">Past</span>
-    </div>
-    <div class="comp-card placeholder">
-      <div>
-        <div class="comp-name">[Add earlier competitions if any]</div>
-        <div class="comp-meta">AUA Open 2021 was noted as Armenia's second WCA competition — the first may be missing from this list</div>
-      </div>
-      <span class="comp-status status-todo">Check WCA</span>
+      <a href="mailto:hello@cubing.am" class="btn">Get in touch</a>
     </div>
   </div>
 </section>
