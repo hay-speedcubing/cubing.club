@@ -131,32 +131,60 @@
   h2.section-title{font-size:22px; margin-bottom:6px;}
   .section-sub{font-size:14.5px; color:var(--ink-soft); margin-bottom:24px;}
 
-  .steps{list-style:none; margin:0; padding:0; counter-reset:step;}
-  .steps li{
-    counter-increment:step;
-    display:flex; gap:16px; padding:16px 0; border-bottom:1px solid var(--line); align-items:center;
+  /* --- J PERM WIDGET STYLES --- */
+  .jperm-container {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--paper-soft);
+    padding: 24px;
+    margin-top: 24px;
   }
-  .steps li:last-child{border-bottom:none;}
-  .steps li::before{
-    content:counter(step);
-    font-family:'JetBrains Mono',monospace; font-weight:700; font-size:13px;
-    width:28px; height:28px; border-radius:50%; background:var(--paper-soft);
-    display:flex; align-items:center; justify-content:center; flex:none;
+  .jperm-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
   }
-  .steps li b{display:block; font-family:'Rubik',sans-serif; font-size:15px; margin-bottom:3px;}
-  .steps li span{font-size:14.5px; color:var(--ink-soft); line-height:1.55;}
-  .step-diagram{flex:none; width:56px; height:56px;}
-  .steps li .step-body{ flex:1; }
-  .step-icon{ flex:none; width:56px; height:56px; }
-  @media (max-width:560px){ .step-icon{display:none;} }
-
-  .mistake-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px;}
-  @media (max-width:720px){ .mistake-grid{grid-template-columns:1fr;} }
-  .mistake-card{
-    border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px;
+  .jperm-controls button {
+    background: var(--ink);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 13.5px;
+    transition: opacity 0.15s;
   }
-  .mistake-card b{display:block; font-family:'Rubik',sans-serif; font-size:14.5px; margin-bottom:5px;}
-  .mistake-card span{font-size:13.5px; color:var(--ink-soft); line-height:1.55;}
+  .jperm-controls button:hover {
+    opacity: 0.85;
+  }
+  .jperm-step-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .jperm-step-title {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  .jperm-alg {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--paper-soft);
+    padding: 6px 12px;
+    border-radius: 6px;
+    display: inline-block;
+    color: var(--cube-blue);
+    font-weight: 700;
+    margin: 8px 0;
+  }
+  /* ---------------------------- */
 
   .path-strip{
     display:flex; align-items:center; gap:0; margin-top:8px; flex-wrap:wrap;
@@ -238,7 +266,7 @@
 <div class="wrap page-head">
   <div class="eyebrow">Learn</div>
   <h1>Solve your first cube today.</h1>
-  <p class="lede">No experience needed — just a standard 3x3 and about 20 minutes. Watch the video below, then use the written steps as a reference while you practice.</p>
+  <p class="lede">No experience needed — just a standard 3x3 and about 20 minutes. Watch the video below, then use the interactive steps as a reference while you practice.</p>
 
   <div class="video-wrap">
     <iframe src="https://www.youtube.com/embed/qgCFr7IfAl4" title="3x3 tutorial — Cubing Armenia" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -250,175 +278,30 @@
   <div class="divider"></div>
 </div>
 
+<!-- J PERM INTERACTIVE SECTION -->
 <section>
   <div class="wrap">
-    <div class="eyebrow">Reference</div>
-    <h2 class="section-title">The method, step by step</h2>
-    <p class="section-sub">A quick reference for the layer-by-layer method shown in the video — come back to this anytime you get stuck.</p>
+    <div class="eyebrow">Interactive Guide</div>
+    <h2 class="section-title">J Perm's Beginner Method Trainer</h2>
+    <p class="section-sub">Practice each step with interactive algorithms and step-by-step guidance.</p>
 
-    <ol class="steps">
-      <li>
-        <svg class="step-diagram" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-<rect x="2" y="2" width="18" height="18" rx="3" fill="#D9D7D2" stroke="rgba(0,0,0,0.12)"/>
-<rect x="22" y="2" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="42" y="2" width="18" height="18" rx="3" fill="#D9D7D2" stroke="rgba(0,0,0,0.12)"/>
-<rect x="2" y="22" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="22" y="22" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="42" y="22" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="2" y="42" width="18" height="18" rx="3" fill="#D9D7D2" stroke="rgba(0,0,0,0.12)"/>
-<rect x="22" y="42" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="42" y="42" width="18" height="18" rx="3" fill="#D9D7D2" stroke="rgba(0,0,0,0.12)"/>
-
-</svg>
-        <div>
-          <b>Build the white cross</b>
-          <span>Get the four white edge pieces around the white center, matching each one to its neighboring center color.</span>
+    <div class="jperm-container">
+      <div class="jperm-header">
+        <span class="mono" style="font-weight:700; color:var(--ink-soft);" id="stepIndicator">Step 1 of 7</span>
+        <div class="jperm-controls">
+          <button id="prevBtn" onclick="changeStep(-1)">← Previous</button>
+          <button id="nextBtn" onclick="changeStep(1)">Next →</button>
         </div>
-      </li>
-      <li>
-        <svg class="step-diagram" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-<rect x="2" y="2" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="22" y="2" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="42" y="2" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="2" y="22" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="22" y="22" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="42" y="22" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="2" y="42" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="22" y="42" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="42" y="42" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-
-</svg>
-        <div>
-          <b>Solve the white corners</b>
-          <span>Slot each white corner piece into place, completing the first layer.</span>
-        </div>
-      </li>
-      <li>
-        <svg class="step-diagram" viewBox="0 0 68 60" xmlns="http://www.w3.org/2000/svg">
-<rect x="10" y="2" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="30" y="2" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="50" y="2" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="10" y="22" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="30" y="22" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="50" y="22" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="10" y="42" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="30" y="42" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="50" y="42" width="18" height="18" rx="3" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)"/>
-<rect x="0" y="22" width="6" height="18" rx="2" fill="var(--cube-blue)"/>
-<rect x="62" y="22" width="6" height="18" rx="2" fill="var(--cube-blue)"/>
-</svg>
-        <div>
-          <b>Solve the middle layer edges</b>
-          <span>Move the four remaining edge pieces (no yellow) into the middle layer.</span>
-        </div>
-      </li>
-      <li>
-        <svg class="step-diagram" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-<rect x="2" y="2" width="18" height="18" rx="3" fill="#D9D7D2" stroke="rgba(0,0,0,0.12)"/>
-<rect x="22" y="2" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="42" y="2" width="18" height="18" rx="3" fill="#D9D7D2" stroke="rgba(0,0,0,0.12)"/>
-<rect x="2" y="22" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="22" y="22" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="42" y="22" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="2" y="42" width="18" height="18" rx="3" fill="#D9D7D2" stroke="rgba(0,0,0,0.12)"/>
-<rect x="22" y="42" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="42" y="42" width="18" height="18" rx="3" fill="#D9D7D2" stroke="rgba(0,0,0,0.12)"/>
-
-</svg>
-        <div>
-          <b>Make the yellow cross</b>
-          <span>Orient the top layer edges so the yellow face shows a cross.</span>
-        </div>
-      </li>
-      <li>
-        <svg class="step-diagram" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-<rect x="2" y="2" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="22" y="2" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="42" y="2" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="2" y="22" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="22" y="22" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="42" y="22" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="2" y="42" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="22" y="42" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="42" y="42" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-
-</svg>
-        <div>
-          <b>Orient the yellow corners</b>
-          <span>Get all four top corners showing yellow on top, regardless of position.</span>
-        </div>
-      </li>
-      <li>
-        <svg class="step-diagram" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-<rect x="2" y="2" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="22" y="2" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="42" y="2" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="2" y="22" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="22" y="22" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="42" y="22" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="2" y="42" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="22" y="42" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="42" y="42" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<text x="11" y="15" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="700">&#8635;</text>
-<text x="51" y="15" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="700">&#8635;</text>
-<text x="11" y="55" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="700">&#8635;</text>
-<text x="51" y="55" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="700">&#8635;</text>
-</svg>
-        <div>
-          <b>Position the yellow corners</b>
-          <span>Move the corners into their correct spots without worrying about the edges yet.</span>
-        </div>
-      </li>
-      <li>
-        <svg class="step-diagram" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-<rect x="2" y="2" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="22" y="2" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="42" y="2" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="2" y="22" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="22" y="22" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="42" y="22" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="2" y="42" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="22" y="42" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<rect x="42" y="42" width="18" height="18" rx="3" fill="var(--cube-gold)" stroke="rgba(0,0,0,0.12)"/>
-<text x="31" y="15" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="700">&#8635;</text>
-<text x="11" y="35" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="700">&#8635;</text>
-<text x="51" y="35" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="700">&#8635;</text>
-<text x="31" y="55" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="700">&#8635;</text>
-</svg>
-        <div>
-          <b>Position the yellow edges</b>
-          <span>Cycle the last edges into place — and the cube is solved.</span>
-        </div>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<section style="padding-top:0;">
-  <div class="wrap">
-    <div class="eyebrow">Watch out for</div>
-    <h2 class="section-title">Common mistakes</h2>
-    <div class="mistake-grid">
-      <div class="mistake-card">
-        <b>Cross pieces flipped</b>
-        <span>A "cross" that looks right from the top can still be wrong — check that each edge color matches its side center too.</span>
       </div>
-      <div class="mistake-card">
-        <b>Breaking the first layer</b>
-        <span>It's easy to accidentally twist the bottom layer while solving the middle layer. Slow down and double-check before each move.</span>
-      </div>
-      <div class="mistake-card">
-        <b>Mixing up orient vs. position</b>
-        <span>Orienting (which way a piece faces) and positioning (where it goes) are two separate steps — trying to do both at once causes most beginner confusion.</span>
-      </div>
-      <div class="mistake-card">
-        <b>Memorizing without understanding</b>
-        <span>It's fine to memorize the last few steps at first, but come back later and learn *why* they work — it makes everything after this much easier.</span>
+
+      <div class="jperm-step-card" id="jpermDisplay">
+        <!-- Dynamic content powered by JS below -->
       </div>
     </div>
   </div>
 </section>
 
+<!-- WHAT'S NEXT SECTION -->
 <section style="padding-top:0;">
   <div class="wrap">
     <div class="eyebrow">What's next</div>
@@ -472,6 +355,7 @@
 <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
 
 <script>
+  // Mobile Navigation Script
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
   const navOverlay = document.getElementById('navOverlay');
@@ -488,6 +372,7 @@
   navOverlay.addEventListener('click', closeMenu);
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
+  // Scroll to Top Script
   const toTopBtn = document.getElementById('toTop');
   window.addEventListener('scroll', ()=>{
     toTopBtn.classList.toggle('visible', window.scrollY > 400);
@@ -495,6 +380,69 @@
   toTopBtn.addEventListener('click', ()=>{
     window.scrollTo({top:0, behavior:'smooth'});
   });
+
+  // J Perm Beginner Method Data & Script
+  const jpermSteps = [
+    {
+      title: "1. Daisy (White Cross Prep)",
+      desc: "Place 4 white edge pieces around the yellow center. Don't worry about the side colors yet.",
+      alg: "Intuitive (No algorithms needed)"
+    },
+    {
+      title: "2. White Cross",
+      desc: "Match the side color of each white edge to its matching center piece, then turn that face twice (F2) to move it to the bottom.",
+      alg: "F2"
+    },
+    {
+      title: "3. First Layer Corners",
+      desc: "Hold the white cross on bottom. Find a white corner on the top layer, position it above where it needs to go, and repeat the Sexy Move until it's solved.",
+      alg: "R U R' U'"
+    },
+    {
+      title: "4. Middle Layer (Second Layer)",
+      desc: "Match a top edge piece (with no yellow) to its center color to form a T. Use the right/left algorithms to insert it into place.",
+      alg: "Right: U R U' R' U' F' U F | Left: U' L' U L U F U' F'"
+    },
+    {
+      title: "5. Yellow Cross",
+      desc: "Look at the yellow top face. Depending on if you have a Dot, 'L' shape, or Line, apply this trigger to form the yellow cross.",
+      alg: "F (R U R' U') F'"
+    },
+    {
+      title: "6. Yellow Corners (Sune)",
+      desc: "Turn the top layer until all corners are oriented (all yellow facing up). Use Sune repeatedly if needed.",
+      alg: "R U R' U R U2 R'"
+    },
+    {
+      title: "7. Final Layer Permutation",
+      desc: "First cycle corners until they match, then cycle edges to finish the entire cube!",
+      alg: "Corners: R' F R' B2 R F' R' B2 R2 | Edges: R U' R U R U R U' R' U' R2"
+    }
+  ];
+
+  let currentStep = 0;
+
+  function renderStep() {
+    const step = jpermSteps[currentStep];
+    document.getElementById('stepIndicator').innerText = `Step ${currentStep + 1} of ${jpermSteps.length}`;
+    document.getElementById('jpermDisplay').innerHTML = `
+      <div class="jperm-step-title">${step.title}</div>
+      <p style="font-size:14.5px; color:var(--ink-soft); line-height:1.6; margin:0 0 12px 0;">${step.desc}</p>
+      <div><b>Algorithm:</b> <span class="jperm-alg">${step.alg}</span></div>
+    `;
+    document.getElementById('prevBtn').style.opacity = currentStep === 0 ? '0.5' : '1';
+    document.getElementById('nextBtn').style.opacity = currentStep === jpermSteps.length - 1 ? '0.5' : '1';
+  }
+
+  function changeStep(direction) {
+    currentStep += direction;
+    if (currentStep < 0) currentStep = 0;
+    if (currentStep >= jpermSteps.length) currentStep = jpermSteps.length - 1;
+    renderStep();
+  }
+
+  // Initial render
+  renderStep();
 </script>
 
 </body>
