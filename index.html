@@ -214,16 +214,15 @@
   .announce-time{ font-family:'JetBrains Mono',monospace; font-size:14.5px; color:rgba(255,255,255,0.75); margin-top:8px; }
   .announce-box p{ margin-top:16px; font-size:14px; color:rgba(255,255,255,0.85); line-height:1.6; }
 
-  /* ---------- partners ---------- */
-  .partners-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:8px; }
-  @media (max-width:820px){ .partners-grid{grid-template-columns:repeat(3,1fr);} }
-  @media (max-width:520px){ .partners-grid{grid-template-columns:repeat(2,1fr);} }
-  .partner-slot{
-    aspect-ratio:16/9; border:1.5px dashed var(--line); border-radius:10px;
-    background:var(--paper-soft);
-    display:flex; align-items:center; justify-content:center;
-    color:var(--ink-soft); font-size:11.5px; text-align:center; padding:8px;
-  }
+.partners-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:8px; }
+@media (max-width:820px){ .partners-grid{grid-template-columns:repeat(3,1fr);} }
+@media (max-width:520px){ .partners-grid{grid-template-columns:repeat(2,1fr);} }
+.partner-slot{
+  aspect-ratio:16/9; border:1px solid var(--line); border-radius:10px;
+  background:#fff;
+  display:flex; align-items:center; justify-content:center; padding:14px;
+}
+.partner-slot img{ max-width:100%; max-height:100%; object-fit:contain; }
 
   /* ---------- about / mission ---------- */
   .about .wrap{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; }
@@ -351,7 +350,7 @@
     </div>
     <div class="video-carousel">
       <div class="carousel-frame">
-        <iframe id="carouselFrame" src="https://www.youtube.com/embed/jzWH7mcnKKA" title="Cubing Armenia video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe id="carouselFrame" src="https://www.youtube.com/embed/SmOOA_cPIqI" title="Cubing Armenia video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="carousel-controls">
         <button class="carousel-arrow" id="carouselPrev" aria-label="Previous video">←</button>
@@ -477,13 +476,16 @@
 <section style="padding-top:0;">
   <div class="wrap">
     <div class="eyebrow">Our partners</div>
-    <h2 style="font-size:clamp(22px,3vw,28px); margin-bottom:24px;">Universities &amp; schools we work with</h2>
+    <h2 style="font-size:clamp(22px,3vw,28px); margin-bottom:24px;">Organizations we work with</h2>
     <div class="partners-grid">
-      <div class="partner-slot">Add logo</div>
-      <div class="partner-slot">Add logo</div>
-      <div class="partner-slot">Add logo</div>
-      <div class="partner-slot">Add logo</div>
-      <div class="partner-slot">Add logo</div>
+      <div class="partner-slot"><img src="aua.webp" alt="American University of Armenia"></div>
+      <div class="partner-slot"><img src="ysu.webp" alt="Yerevan State University"></div>
+      <div class="partner-slot"><img src="bsu.webp" alt="Brusov State University"></div>
+      <div class="partner-slot"><img src="mskh.webp" alt="MSKH"></div>
+      <div class="partner-slot"><img src="tumo.webp" alt="TUMO Center for Creative Technologies"></div>
+      <div class="partner-slot"><img src="nas.webp" alt="National Academy of Sciences of Armenia"></div>
+      <div class="partner-slot"><img src="chess-academy.webp" alt="Chess Academy of Armenia"></div>
+      <div class="partner-slot"><img src="emili-aregak.webp" alt="Emili Aregak"></div>
     </div>
   </div>
 </section>
@@ -574,7 +576,7 @@
   });
 
   // ---------------- video carousel ----------------
-  const videoIds = ['jzWH7mcnKKA', 'qC83GBOyE50', 'OAQ_i9EPr8U', 'G19VBGiRlZg'];
+  const videoIds = ['SmOOA_cPIqI', 'jzWH7mcnKKA', 'qC83GBOyE50', 'OAQ_i9EPr8U', 'G19VBGiRlZg'];
   let videoIndex = 0;
   const carouselFrame = document.getElementById('carouselFrame');
   const carouselDots = document.getElementById('carouselDots');
