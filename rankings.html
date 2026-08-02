@@ -1,110 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rankings — Cubing Armenia</title>
-<link rel="icon" href="logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;800;900&family=Noto+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<title>Cubing Armenia has moved to cubing.am</title>
+<!-- GitHub Pages can't issue a real 301, so this is the closest equivalent:
+     canonical tells search engines which URL is authoritative, the refresh covers
+     visitors with JavaScript off, and the script below redirects everyone else. -->
+<link rel="canonical" href="https://cubing.am/rankings">
+<meta http-equiv="refresh" content="0; url=https://cubing.am/rankings">
+<meta name="robots" content="noindex, follow">
 <style>
-  :root{
-    --cube-red:#DA0313; --cube-blue:#0733A0; --cube-gold:#F1A804;
-    --ink:#232326; --ink-soft:#63636A; --paper:#FFFFFF; --paper-soft:#F5F4F1; --line:#E6E4DF; --radius:14px;
-  }
-  *{box-sizing:border-box;}
-  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Noto Sans',sans-serif; -webkit-font-smoothing:antialiased;}
-  h1{font-family:'Rubik',sans-serif; font-weight:800; margin:0;}
-  a{color:inherit; text-decoration:none;}
-  img{max-width:100%; display:block;}
-  .tricolor-rule{display:flex; height:6px; width:100%;}
-  .tricolor-rule span{flex:1;}
-  .tricolor-rule span:nth-child(1){background:var(--cube-red);}
-  .tricolor-rule span:nth-child(2){background:var(--cube-blue);}
-  .tricolor-rule span:nth-child(3){background:var(--cube-gold);}
-  header.nav{position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
-  .nav-inner{max-width:1120px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px;}
-  .brand{display:flex; align-items:center; gap:10px;}
-  .brand img{width:56px; height:56px;}
-  .brand span{font-family:'Rubik',sans-serif; font-weight:800; font-size:17px;}
-  nav.links{display:flex; gap:24px; align-items:center;}
-  nav.links a{font-size:14px; font-weight:600; color:var(--ink); opacity:0.8;}
-  nav.links a:hover{opacity:1;}
-  nav.links a.current{opacity:1; border-bottom:2px solid var(--cube-gold); padding-bottom:2px;}
-  .menu-toggle{display:none; background:none; border:none; cursor:pointer; padding:6px; flex:none;}
-  .menu-toggle span{display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; transition:transform .2s ease, opacity .2s ease;}
-  .menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-  .menu-toggle.open span:nth-child(2){opacity:0;}
-  .menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-  .nav-overlay{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.3); z-index:65;}
-  .nav-overlay.open{display:block;}
-  @media (max-width:860px){
-    .menu-toggle{display:block;}
-    nav.links{
-      position:fixed; top:0; right:0; height:100vh; width:min(78vw,300px);
-      background:var(--paper); flex-direction:column; align-items:flex-start;
-      padding:96px 28px 28px; gap:24px; box-shadow:-10px 0 30px rgba(0,0,0,0.1);
-      transform:translateX(100%); transition:transform .25s ease; z-index:70;
-    }
-    nav.links.open{ transform:translateX(0); }
-    nav.links a{font-size:16.5px;}
-  }
-  .empty-state{ max-width:520px; margin:0 auto; padding:120px 24px; text-align:center; }
-  .empty-state .icon{font-size:34px; margin-bottom:18px;}
-  .empty-state h1{font-size:clamp(26px,4vw,34px); margin-bottom:12px;}
-  .empty-state p{color:var(--ink-soft); font-size:15.5px; line-height:1.6;}
-  .empty-state a{font-weight:700; text-decoration:underline; color:var(--ink);}
-  footer{padding:32px 24px; text-align:center; font-size:12.5px; color:var(--ink-soft); border-top:1px solid var(--line);}
+  body { font-family: system-ui, sans-serif; margin: 15vh auto; max-width: 32rem;
+         padding: 0 1.5rem; text-align: center; color: #232326; line-height: 1.6; }
+  a { color: #0733A0; }
 </style>
 </head>
 <body>
-
-<header class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="brand">
-      <img src="logo.png" alt="Cubing Armenia logo">
-      <span>Cubing Armenia</span>
-    </a>
-    <nav class="links" id="navLinks">
-      <a href="competitions.html">Competitions</a>
-      <a href="rankings.html" class="current">Rankings</a>
-      <a href="parents-guide.html">For Parents</a>
-      <a href="learn.html">Learn</a>
-      <a href="about.html">About us</a>
-      <a href="index.html#store">Store</a>
-    </nav>
-    <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
-  </div>
-  <div class="nav-overlay" id="navOverlay"></div>
-  <div class="tricolor-rule"><span></span><span></span><span></span></div>
-</header>
-
-<div class="empty-state">
-  <div class="icon">🏗️</div>
-  <h1>Rankings are coming.</h1>
-  <p>We're building this properly instead of rushing it — Armenia's WCA rankings will live here soon. In the meantime, check <a href="https://www.worldcubeassociation.org/results/rankings/333/single?region=Armenia" target="_blank" rel="noopener">the official WCA rankings</a> for Armenia.</p>
-</div>
-
-<footer>© 2026 Cubing Armenia</footer>
-
+<p>Cubing Armenia has moved to <a href="https://cubing.am/rankings">cubing.am</a>.</p>
+<p>Կուբինգ Հայաստանը տեղափոխվել է <a href="https://cubing.am/rankings">cubing.am</a>։</p>
 <script>
-  const menuToggle = document.getElementById('menuToggle');
-  const navLinks = document.getElementById('navLinks');
-  const navOverlay = document.getElementById('navOverlay');
-  function closeMenu(){
-    menuToggle.classList.remove('open');
-    navLinks.classList.remove('open');
-    navOverlay.classList.remove('open');
-  }
-  menuToggle.addEventListener('click', ()=>{
-    const isOpen = navLinks.classList.toggle('open');
-    menuToggle.classList.toggle('open', isOpen);
-    navOverlay.classList.toggle('open', isOpen);
-  });
-  navOverlay.addEventListener('click', closeMenu);
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  // replace() rather than assign(): the visitor's Back button should return them
+  // to wherever they came from, not bounce them through this page again.
+  location.replace('https://cubing.am/rankings' + location.hash);
 </script>
-
 </body>
 </html>
